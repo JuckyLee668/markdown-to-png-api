@@ -34,9 +34,6 @@ npm install
 
 ```bash
 # 开发环境
-npm run dev
-
-# 生产环境
 npm start
 ```
 
@@ -80,72 +77,7 @@ console.log('Code block example');
 
 - `PORT` - 服务端口号（默认：3000）
 
-## 部署
-
-### 本地部署
-
-```bash
-npm start
-```
-
-### Docker 部署
-
-```dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-
-EXPOSE 3000
-CMD ["node", "server.js"]
-```
-
-### 云平台部署
-
-该应用可轻松部署到：
-- Vercel
-- Railway
-- Render
-- 任何支持 Node.js 的云平台
-
-## 项目结构
-
-```
-markdown-to-png-api/
-├── server.js          # 主应用文件
-├── package.json       # 项目依赖
-├── package-lock.json  # 依赖锁定文件
-├── README.md          # 项目文档
-└── .gitignore         # Git 忽略文件
-```
-
-## 技术栈
-
-- **Express.js** - Web 服务器框架
-- **Markdown-it** - Markdown 解析器
-- **Puppeteer** - Headless Chrome 控制
-- **Node.js** - 运行时环境
-
 ## 注意事项
 
 - 请求体大小限制为 5MB
 - 首次启动时会下载 Chromium，可能需要一些时间
-- 生产环境中建议配置适当的沙盒安全设置
-
-## 开发
-
-### 本地开发
-
-```bash
-# 安装所有依赖（包括开发依赖）
-npm install
-
-# 开发模式运行（需要 nodemon）
-npm run dev
-```
-
-## 许可证
-
-MIT
