@@ -1,64 +1,61 @@
 # Markdown to PNG API
 
-An Express.js service that converts Markdown text to high-quality PNG screenshots.
+## 项目简介
 
-## Repository Information
+该服务接收 Markdown 文本作为输入，使用 Markdown-it 将其转换为 HTML，然后通过 Puppeteer 和 Headless Chrome 渲染并生成 PNG 图片。适用于自动化文档生成、内容预览等场景。
 
-**Repository Name**: `markdown-to-png-api`  
-**Description**: A lightweight Node.js server that converts Markdown text to PNG images via API
+## 功能特性
 
-## Features
+- 📝 **Markdown 转 PNG**：支持标准 Markdown 语法渲染
+- 🎨 **美观的默认样式**：精心设计的 CSS 样式，确保渲染效果优雅
+- 🚀 **高性能**：使用 Headless Chrome 进行高效渲染
+- 📱 **高分辨率支持**：支持 2x 设备像素比，生成高质量图片
+- 🔧 **易于部署**：简单的 Express.js 应用，可轻松部署到各种云平台
 
-- 📝 **Markdown to PNG Conversion**: Renders standard Markdown syntax to PNG images
-- 🎨 **Beautiful Default Styling**: Carefully designed CSS for elegant rendering
-- 🚀 **High Performance**: Utilizes Headless Chrome for efficient rendering
-- 📱 **High-Resolution Support**: 2x device pixel ratio for crisp images
-- 🔧 **Easy Deployment**: Simple Express.js app, deployable to various cloud platforms
+## 快速开始
 
-## Quick Start
-
-### Prerequisites
+### 环境要求
 
 - Node.js 18+
-- npm or yarn
+- npm 或 yarn
 
-### Installation
+### 安装
 
 ```bash
-# Clone the repository
+# 克隆仓库
 git clone <repository-url>
 cd markdown-to-png-api
 
-# Install dependencies
+# 安装依赖
 npm install
 ```
 
-### Running the Service
+### 运行服务
 
 ```bash
-# Development mode
+# 开发环境
 npm run dev
 
-# Production mode
+# 生产环境
 npm start
 ```
 
-The service runs on `http://localhost:3000` by default.
+服务默认运行在 `http://localhost:3000`
 
-## API Usage
+## API 使用
 
-### Generate PNG Screenshot
+### 生成 PNG 截图
 
-**Endpoint**: `POST /`
+**端点**: `POST /`
 
-**Headers**:
+**请求头**:
 ```
 Content-Type: text/plain
 ```
 
-**Request Body**: Markdown text content
+**请求体**: Markdown 文本内容
 
-**Example**:
+**示例**:
 
 ```bash
 curl -X POST http://localhost:3000 \
@@ -77,21 +74,21 @@ console.log('Code block example');
   --output screenshot.png
 ```
 
-**Response**: PNG image file
+**响应**: PNG 图片文件
 
-### Environment Variables
+### 环境变量
 
-- `PORT` - Server port (default: 3000)
+- `PORT` - 服务端口号（默认：3000）
 
-## Deployment
+## 部署
 
-### Local Deployment
+### 本地部署
 
 ```bash
 npm start
 ```
 
-### Docker Deployment
+### Docker 部署
 
 ```dockerfile
 FROM node:18-alpine
@@ -105,58 +102,50 @@ EXPOSE 3000
 CMD ["node", "server.js"]
 ```
 
-### Cloud Platform Deployment
+### 云平台部署
 
-This application can be easily deployed to:
+该应用可轻松部署到：
 - Vercel
 - Railway
 - Render
-- Any Node.js-supported cloud platform
+- 任何支持 Node.js 的云平台
 
-## Project Structure
+## 项目结构
 
 ```
 markdown-to-png-api/
-├── server.js          # Main application file
-├── package.json       # Project dependencies
-├── package-lock.json  # Dependency lock file
-├── README.md          # Project documentation
-└── .gitignore         # Git ignore file
+├── server.js          # 主应用文件
+├── package.json       # 项目依赖
+├── package-lock.json  # 依赖锁定文件
+├── README.md          # 项目文档
+└── .gitignore         # Git 忽略文件
 ```
 
-## Tech Stack
+## 技术栈
 
-- **Express.js** - Web server framework
-- **Markdown-it** - Markdown parser
-- **Puppeteer** - Headless Chrome control
-- **Node.js** - Runtime environment
+- **Express.js** - Web 服务器框架
+- **Markdown-it** - Markdown 解析器
+- **Puppeteer** - Headless Chrome 控制
+- **Node.js** - 运行时环境
 
-## Notes
+## 注意事项
 
-- Request body size is limited to 5MB
-- Initial startup downloads Chromium, which may take some time
-- Appropriate sandbox security settings are recommended for production
+- 请求体大小限制为 5MB
+- 首次启动时会下载 Chromium，可能需要一些时间
+- 生产环境中建议配置适当的沙盒安全设置
 
-## Development
+## 开发
 
-### Local Development
+### 本地开发
 
 ```bash
-# Install all dependencies (including dev dependencies)
+# 安装所有依赖（包括开发依赖）
 npm install
 
-# Run in development mode (requires nodemon)
+# 开发模式运行（需要 nodemon）
 npm run dev
 ```
 
-### Building
-
-The project uses ES modules and doesn't require a build step.
-
-## Contributing
-
-Issues and Pull Requests are welcome!
-
-## License
+## 许可证
 
 MIT
